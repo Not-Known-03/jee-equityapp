@@ -15,6 +15,7 @@
 	Password :  <input type="password" name="password"/><br><br>
 	<input type="submit" value="Signup">
 </form>
-
+<Br><br> 
+<a href="Login.jsp">Already Registered?</a>
 </body>
 </html>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bean.UserBean;
 import com.dao.UserDao;
+import com.service.MailerService;
 
 @WebServlet("/SaveUserServlet")
 public class SaveUserServlet extends HttpServlet {
@@ -28,6 +29,9 @@ public class SaveUserServlet extends HttpServlet {
 
 		userDao.addUser(user);// UserBean =>
 
+		MailerService mailerService = new MailerService();
+		mailerService.sendWelcomeMail(user);
+		
 		response.sendRedirect("Login.jsp");
 	}
 }

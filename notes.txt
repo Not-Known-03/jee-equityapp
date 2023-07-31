@@ -9,3 +9,7 @@ create table users (
 	password varchar(30)
 );
 
+-----------------------------------
+1) javax.mailer.jar {google download}
+2) gmail -> java code -> send mail 
+3) credentials -> mail send-> gmail {username and password }
