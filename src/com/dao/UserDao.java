@@ -13,10 +13,11 @@ public class UserDao {
 		try {
 
 			Connection con = DbConnection.getConnection();
-			PreparedStatement pstmt = con.prepareStatement("insert users (firstName,email,password) values (?,?,?) ");
+			PreparedStatement pstmt = con.prepareStatement("insert users (firstName,email,password,role) values (?,?,?,?) ");
 			pstmt.setString(1, user.getFirstName());
 			pstmt.setString(2, user.getEmail());
 			pstmt.setString(3, user.getPassword());
+			pstmt.setString(4, user.getRole());
 
 			pstmt.executeUpdate(); //
 
@@ -44,7 +45,7 @@ public class UserDao {
 				user.setFirstName(rs.getString("firstName"));
 				user.setEmail(email);
 				user.setPassword(password);
-
+				user.setRole(rs.getString("role"));
 				return user;// user's email and password match
 			}
 		} catch (Exception e) {

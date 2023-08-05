@@ -26,7 +26,7 @@ public class SaveUserServlet extends HttpServlet {
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setFirstName(firstName);
-
+		user.setRole("USER");
 		userDao.addUser(user);// UserBean =>
 
 		MailerService mailerService = new MailerService();

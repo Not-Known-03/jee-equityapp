@@ -21,16 +21,20 @@ public class LoginServlet extends HttpServlet {
 
 		UserBean user = userDao.authenitcate(email, password);
 
-		if(user == null) {
+		if (user == null) {
 			request.setAttribute("error", "Invalid Credentials");
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
-		}else {
-			//loggedin 
-			
-			HttpSession session = request.getSession(); 
-			session.setAttribute("user", user);//userId , firstName ,email, password 
-			
-			response.sendRedirect("Home.jsp");
+		} else {
+			// loggedin
+
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);// userId , firstName ,email, password
+			if (user.getRole().equals("USER")) {
+				response.sendRedirect("Home.jsp");
+			}else if(user.getRole().equals("ADMIN")) {
+				response.sendRedirect("AdminDashboard.jsp");
+							
+			}
 		}
 	}
 

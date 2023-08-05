@@ -24,4 +24,19 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddEqServlet</display-name>
+    <servlet-name>AddEqServlet</servlet-name>
+    <servlet-class>com.controller.AddEqServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEqServlet</servlet-name>
+    <url-pattern>/AddEqServlet</url-pattern>
+  </servlet-mapping>
+
+	<listener>
+		<listener-class>com.listener.PriceListener</listener-class>
+	</listener>
+
 </web-app>
